@@ -17,6 +17,7 @@ import os
 import re
 from datetime import datetime
 from typing import List, Optional
+from zoneinfo import ZoneInfo
 
 import httpx
 
@@ -30,6 +31,13 @@ BUCKET = os.getenv("SUPABASE_BUCKET", "la-llave")
 os.makedirs(DIR, exist_ok=True)
 
 
+MADRID = ZoneInfo("Europe/Madrid")   # Render va en UTC: las fechas, siempre en hora de Madrid
+
+
+def hora_madrid(ts: float) -> datetime:
+    return datetime.fromtimestamp(ts, MADRID)
+
+
 def supabase_activo() -> bool:
     # Un guion o un valor de relleno en Render no cuenta como configurado
     return SUPABASE_URL.startswith("https://") and len(SUPABASE_KEY) > 30
@@ -40,7 +48,7 @@ def slug(texto: str) -> str:
 
 
 def carpeta(pid: str, marca: str, inicio: float) -> str:
-    return f"{datetime.fromtimestamp(inicio):%Y-%m-%d_%H%M}_{slug(marca)}_{pid}"
+    return f"{hora_madrid(inicio):%Y-%m-%d_%H%M}_{slug(marca)}_{pid}"
 
 
 def nombre_excel(marca: str) -> str:

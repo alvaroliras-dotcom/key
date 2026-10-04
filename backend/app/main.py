@@ -21,7 +21,6 @@ import re
 import time
 import uuid
 from contextlib import asynccontextmanager
-from datetime import datetime
 from typing import Dict, List
 
 import httpx
@@ -231,7 +230,7 @@ async def _recoger(briefing: Briefing, est: dict):
     # Excel y guardado
     marcar("excel", "corriendo")
     duracion = round(time.time() - est["inicio"])
-    fecha = datetime.fromtimestamp(est["inicio"]).strftime("%d/%m/%Y %H:%M")
+    fecha = almacen.hora_madrid(est["inicio"]).strftime("%d/%m/%Y %H:%M")
     extra = {
         "fecha": fecha, "duracion_seg": duracion, "consultas": ac.hechas,
         "parado": {None: "", "tiempo": "parado por tiempo"}.get(ac.parado, f"bloqueado: {ac.parado}"),
