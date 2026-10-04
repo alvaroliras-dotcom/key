@@ -24,14 +24,15 @@ log = logging.getLogger("la-llave")
 
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 DIR = os.getenv("RECOGIDAS_DIR") or os.path.join(RAIZ, "recogidas")
-SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
-SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY", "")
+SUPABASE_URL = os.getenv("SUPABASE_URL", "").strip().rstrip("/")
+SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY", "").strip()
 BUCKET = os.getenv("SUPABASE_BUCKET", "la-llave")
 os.makedirs(DIR, exist_ok=True)
 
 
 def supabase_activo() -> bool:
-    return bool(SUPABASE_URL and SUPABASE_KEY)
+    # Un guion o un valor de relleno en Render no cuenta como configurado
+    return SUPABASE_URL.startswith("https://") and len(SUPABASE_KEY) > 30
 
 
 def slug(texto: str) -> str:
@@ -63,8 +64,12 @@ def _subir(ruta_remota: str, contenido: bytes, tipo: str):
 
 
 def _bajar(ruta_remota: str) -> Optional[bytes]:
-    r = httpx.get(f"{SUPABASE_URL}/storage/v1/object/{BUCKET}/{ruta_remota}",
-                  headers=_cabeceras("application/octet-stream"), timeout=60)
+    try:
+        r = httpx.get(f"{SUPABASE_URL}/storage/v1/object/{BUCKET}/{ruta_remota}",
+                      headers=_cabeceras("application/octet-stream"), timeout=60)
+    except httpx.HTTPError as e:
+        log.warning("Supabase no responde: %s", e)
+        return None
     return r.content if r.status_code == 200 else None
 
 

@@ -18,8 +18,14 @@ import httpx
 from .normalizar import clave
 
 API = "https://api.dataforseo.com/v3"
-LOGIN = os.getenv("DATAFORSEO_LOGIN", "")
-PASSWORD = os.getenv("DATAFORSEO_PASSWORD", "")
+def _credencial(nombre: str) -> str:
+    """Vacío si no hay valor o si es de relleno («-», «x», «none»…), para no llamar a la API con basura."""
+    v = os.getenv(nombre, "").strip()
+    return "" if len(v) < 4 or v.lower() in {"none", "null", "vacio", "vacío"} else v
+
+
+LOGIN = _credencial("DATAFORSEO_LOGIN")
+PASSWORD = _credencial("DATAFORSEO_PASSWORD")
 MAX_SEMILLAS_PREGUNTAS = int(os.getenv("DATAFORSEO_MAX_PREGUNTAS", "15"))
 MAX_KEYWORDS_VOLUMEN = int(os.getenv("DATAFORSEO_MAX_VOLUMEN", "3000"))
 LOTE_VOLUMEN = 1000                       # máximo de keywords por tarea de Google Ads
