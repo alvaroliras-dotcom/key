@@ -43,7 +43,9 @@ def _fuentes():
 
 def pagina(datos: dict) -> bytes:
     normal, negrita = _fuentes()
-    st = lambda **k: ParagraphStyle("x", fontName=normal, fontSize=8.6, leading=11.2, textColor=NEGRO, **k)
+    def st(**k):
+        base = {"fontName": normal, "fontSize": 8.6, "leading": 11.2, "textColor": NEGRO}
+        return ParagraphStyle("x", **(base | k))
     s_cab = st(textColor=GRIS, fontSize=7.5)
     s_tit = ParagraphStyle("t", fontName=negrita, fontSize=20, leading=23, textColor=NEGRO)
     s_sub = st(fontSize=9.5, leading=13, textColor=GRIS)
