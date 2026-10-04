@@ -1,4 +1,9 @@
-export const API_URL = (import.meta.env.VITE_API_URL ?? "http://localhost:8000").replace(/\/$/, "");
+// En Vercel no hace falta configurar nada: si no hay VITE_API_URL, la web publicada usa el
+// motor de Render y la de desarrollo (npm run dev) el local.
+const MOTOR_RENDER = "https://la-llave-qicn.onrender.com";
+export const API_URL = (
+  import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? "http://localhost:8000" : MOTOR_RENDER)
+).replace(/\/$/, "");
 
 export interface Servicio {
   nombre: string;
