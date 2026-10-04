@@ -3,34 +3,104 @@
   "fecha": "4 de octubre de 2026",
   "resumen": "Las siete peticiones de Nuria más el conector MCP. Probado con El Gordo y el Flaco (lanzado desde el propio conector): 7 min 1 s, 1.693 keywords limpias, 139 descartadas con motivo, 108 familias, 147 keywords con hueco y ningún volumen sin fuente.",
   "cifras": [
-    ["1.693", "keywords únicas"],
-    ["139", "descartadas con motivo"],
-    ["108", "familias (borrador)"],
-    ["147", "con hueco · 145 fuertes"],
-    ["7:01", "minutos"]
+    [
+      "1.693",
+      "keywords únicas"
+    ],
+    [
+      "139",
+      "descartadas con motivo"
+    ],
+    [
+      "108",
+      "familias (borrador)"
+    ],
+    [
+      "147",
+      "con hueco · 145 fuertes"
+    ],
+    [
+      "7:01",
+      "minutos"
+    ]
   ],
   "hecho": [
-    ["1 · Filtro de ruido", "Lista negra por defecto editable (los 17 términos de Nuria, sin «online»), pestaña Descartadas con motivo y zonas del briefing que nunca se filtran. Unos 300 lugares conocidos: lo de fuera sale como «geo fuera de briefing» (Madrid, Coslada, Chamberí…)."],
-    ["2 · Familias", "Columna y pestaña Familias (servicio + zona + intención), marcadas como BORRADOR de lectura. 108 familias en lugar de 1.693 filas."],
-    ["3 · Preguntas", "Pestaña Preguntas: People Also Ask y búsquedas relacionadas con DataForSEO (listo, falta la clave). Además, siempre, las preguntas del autocomplete: 108 en la prueba."],
-    ["4 · Hueco", "Columnas hueco, competidores con página, página propia y fiabilidad (fuerte / inferencia débil). Probado: 145 de los 147 huecos son de inferencia fuerte."],
-    ["5 · Volumen para webs nuevas", "CSV del Keyword Planner (UTF-16; los rangos se escriben como rango) y volumen de DataForSEO solo para lo que falte. Cascada: Search Console > Planner > DataForSEO > sin dato."],
-    ["6 · Lectura", "Primera pestaña con los recuentos del informe hechos: intención, servicio, zona, zonas fuera de briefing, top de Search Console, familias, huecos y fiabilidad del espejo."],
-    ["7 · Operativa", "Briefing guardable y relanzable (briefing.json con los CSV), recogidas guardadas en carpeta (Supabase opcional), 2 consultas en paralelo, pausas dobles si hubo otra recogida en la última hora y aviso grande si Google bloquea."],
-    ["Conector MCP", "lanzar_recogida, estado, descargar_excel y, además, leer_pestana para leer el Excel por tramos desde claude.ai. Protegido por una ruta secreta."]
+    [
+      "1 · Filtro de ruido",
+      "Lista negra por defecto editable (los 17 términos de Nuria, sin «online»), pestaña Descartadas con motivo y zonas del briefing que nunca se filtran. Unos 300 lugares conocidos: lo de fuera sale como «geo fuera de briefing» (Madrid, Coslada, Chamberí…)."
+    ],
+    [
+      "2 · Familias",
+      "Columna y pestaña Familias (servicio + zona + intención), marcadas como BORRADOR de lectura. 108 familias en lugar de 1.693 filas."
+    ],
+    [
+      "3 · Preguntas",
+      "Pestaña Preguntas con las preguntas del autocomplete (108 en la prueba). La parte de People Also Ask y búsquedas relacionadas está programada para DataForSEO, pero queda apagada: Álvaro no la contrata."
+    ],
+    [
+      "4 · Hueco",
+      "Columnas hueco, competidores con página, página propia y fiabilidad (fuerte / inferencia débil). Probado: 145 de los 147 huecos son de inferencia fuerte."
+    ],
+    [
+      "5 · Volumen para webs nuevas",
+      "CSV del Keyword Planner (UTF-16; los rangos se escriben como rango). Cascada: Search Console > Planner > sin dato. DataForSEO programado pero apagado."
+    ],
+    [
+      "6 · Lectura",
+      "Primera pestaña con los recuentos del informe hechos: intención, servicio, zona, zonas fuera de briefing, top de Search Console, familias, huecos y fiabilidad del espejo."
+    ],
+    [
+      "7 · Operativa",
+      "Briefing guardable y relanzable (briefing.json con los CSV), recogidas guardadas en carpeta (Supabase opcional), 2 consultas en paralelo, pausas dobles si hubo otra recogida en la última hora y aviso grande si Google bloquea."
+    ],
+    [
+      "Conector MCP",
+      "lanzar_recogida, estado, descargar_excel y, además, leer_pestana para leer el Excel por tramos desde claude.ai. Protegido por una ruta secreta."
+    ]
   ],
   "descartado": [
-    ["Leer la SERP de Google directamente para las PAA", "Google bloquea desde servidores compartidos; se usa DataForSEO, que es fiable y cuesta céntimos."],
-    ["Supabase como almacén obligatorio", "Álvaro eligió guardar en carpeta; Supabase queda como opción activable con dos variables."],
-    ["«online» en la lista negra", "Decisión de Nuria: «agencia seo online» puede ser cliente."],
-    ["Primera regla del hueco", "Comparaba zona con zona y daba 457 huecos, 310 de ellos falsos (una página «Diseño web en Alcorcón» no cubría «diseño web barato»). Corregida: sin zona, cubre cualquier página del servicio; con zona, solo la de esa zona."]
+    [
+      "DataForSEO (decisión de Álvaro)",
+      "No se contrata: 50 $ de entrada sin saber cuánto mejora los proyectos. El código queda dentro y apagado. Sustitutos gratis: volumen de Search Console y del CSV del Keyword Planner (rangos); preguntas del autocomplete."
+    ],
+    [
+      "Leer la SERP de Google directamente para las PAA",
+      "Google bloquea desde servidores compartidos (comprobado en Render: 403 a las 567 consultas). Sin DataForSEO, las preguntas salen del autocomplete."
+    ],
+    [
+      "Supabase como almacén obligatorio",
+      "Álvaro eligió guardar en carpeta; Supabase queda como opción activable con dos variables."
+    ],
+    [
+      "«online» en la lista negra",
+      "Decisión de Nuria: «agencia seo online» puede ser cliente."
+    ],
+    [
+      "Primera regla del hueco",
+      "Comparaba zona con zona y daba 457 huecos, 310 de ellos falsos (una página «Diseño web en Alcorcón» no cubría «diseño web barato»). Corregida: sin zona, cubre cualquier página del servicio; con zona, solo la de esa zona."
+    ]
   ],
   "pendiente": [
-    ["Clave de DataForSEO", "Álvaro crea la cuenta y pone DATAFORSEO_LOGIN y DATAFORSEO_PASSWORD en Render. PAA y volumen de pago solo están probados con respuestas simuladas."],
-    ["Despliegue", "Vercel funcionando; Render en marcha. Falta conectar ambos (VITE_API_URL), fijar PUBLIC_URL y dar de alta el conector en claude.ai."],
-    ["Prueba con Marcos Cerrajeros", "Sin su briefing; la prueba se hizo con El Gordo y el Flaco."],
-    ["Detección automática de competidores", "Del briefing original; no entró en esta vuelta."],
-    ["v3", "Google Trends, histórico en Supabase y borrador de clustering automático."]
+    [
+      "Despliegue",
+      "Web (Vercel) y motor (Render) funcionando y conectados. Falta dar de alta el conector en claude.ai."
+    ],
+    [
+      "Bloqueo de Google en Render",
+      "Desde el servidor, Google corta el autocomplete hacia las 570 consultas (en el ordenador de Álvaro, 1.418 sin bloqueo). Se entrega lo recogido (unas 1.800 keywords) con aviso. Una recogida por hora."
+    ],
+    [
+      "Prueba con Marcos Cerrajeros",
+      "Sin su briefing; la prueba se hizo con El Gordo y el Flaco."
+    ],
+    [
+      "Detección automática de competidores",
+      "Del briefing original; no entró en esta vuelta."
+    ],
+    [
+      "v3",
+      "Google Trends, histórico en Supabase y borrador de clustering automático."
+    ]
   ],
   "pie": "Página añadida por La Llave · docs/pagina_version.py. Las cifras proceden de la recogida real del 4 de octubre de 2026 (id 7ff042d43b6b)."
 }

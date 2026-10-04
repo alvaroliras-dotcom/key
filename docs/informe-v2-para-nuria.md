@@ -8,6 +8,12 @@ La regla que pediste no tocar sigue intacta: **el Excel no se genera si hay un v
 
 Una aclaración antes de empezar. Pediste los números de la prueba con **Marcos Cerrajeros**, pero no tenemos su briefing. La prueba se ha hecho otra vez con **El Gordo y el Flaco**: es la web de Álvaro, tenemos su Search Console y sirve para comparar con la primera recogida. En cuanto llegue el briefing de Marcos, se lanza igual.
 
+> **Actualización, 4 de octubre (mañana):** Álvaro ha decidido **no contratar DataForSEO** (50 $ de entrada sin saber cuánto mejora los proyectos). Su código queda dentro y apagado. Sin DataForSEO:
+> - el volumen sale de Search Console y del CSV del Keyword Planner (gratis con una cuenta de Google Ads, aunque dé rangos);
+> - las preguntas, del autocomplete.
+>
+> Además, la web y el motor ya están publicados y conectados. Una prueba real desde el servidor de Render confirmó que **Google bloquea el autocomplete hacia las 570 consultas** (desde el ordenador de Álvaro, 1.418 sin bloqueo). Aun así entregó unas 1.800 keywords con el aviso de bloqueo. Por eso: **una recogida por hora**.
+
 ---
 
 ## 1. En una frase
