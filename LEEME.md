@@ -41,16 +41,16 @@ render.yaml  Configuración de Render (lee la carpeta backend/).
      - `MCP_RUTA`: una cadena larga y aleatoria, p. ej. `mcp-` + 32 letras y números.
      - `DATAFORSEO_LOGIN` y `DATAFORSEO_PASSWORD`: déjalos vacíos hasta tener cuenta.
      - Supabase: opcional.
-   - Comprueba que `https://la-llave.onrender.com/` responde `{"ok":true,…}`.
+   - Comprueba que `https://la-llave-qicn.onrender.com/` responde `{"ok":true,…}`.
 3. **Vercel (frontend):** Add New → Project → el mismo repo, Root Directory `frontend`.
-   Variable `VITE_API_URL = https://la-llave.onrender.com`.
+   Variable `VITE_API_URL = https://la-llave-qicn.onrender.com`.
 
 Todas las variables están explicadas en [backend/.env.example](backend/.env.example).
 
 ## Usarla desde claude.ai (conector MCP)
 
 1. En claude.ai: Configuración → Conectores → Añadir conector personalizado.
-2. URL: `https://la-llave.onrender.com/<MCP_RUTA>` (la ruta secreta que pusiste en Render).
+2. URL: `https://la-llave-qicn.onrender.com/<MCP_RUTA>` (la ruta secreta que pusiste en Render).
 3. Herramientas que aparecen:
    - `lanzar_recogida(briefing)` → devuelve un id;
    - `estado(id)` → progreso y, al terminar, el resumen y la Lectura;

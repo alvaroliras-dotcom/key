@@ -16,7 +16,7 @@ services:
       - key: AC_CONCURRENCIA
         value: "2"
       - key: PUBLIC_URL
-        value: https://la-llave.onrender.com
+        value: https://la-llave-qicn.onrender.com
       # Secretos: Render los pide al crear el servicio; nunca van en el repo
       - key: MCP_RUTA
         sync: false
