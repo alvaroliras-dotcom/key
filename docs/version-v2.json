@@ -56,6 +56,10 @@
     [
       "Conector MCP",
       "lanzar_recogida, estado, descargar_excel y, además, leer_pestana para leer el Excel por tramos desde claude.ai. Protegido por una ruta secreta."
+    ],
+    [
+      "Despliegue",
+      "Web en key-lilac.vercel.app, motor en Render (la-llave-qicn.onrender.com) y conector «La Llave» dado de alta en claude.ai con sus 4 herramientas."
     ]
   ],
   "descartado": [
@@ -81,10 +85,6 @@
     ]
   ],
   "pendiente": [
-    [
-      "Despliegue",
-      "Web (Vercel) y motor (Render) funcionando y conectados. Falta dar de alta el conector en claude.ai."
-    ],
     [
       "Bloqueo de Google en Render",
       "Desde el servidor, Google corta el autocomplete hacia las 570 consultas (en el ordenador de Álvaro, 1.418 sin bloqueo). Se entrega lo recogido (unas 1.800 keywords) con aviso. Una recogida por hora."

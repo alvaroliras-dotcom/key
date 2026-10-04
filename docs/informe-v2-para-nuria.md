@@ -12,7 +12,7 @@ Una aclaración antes de empezar. Pediste los números de la prueba con **Marcos
 > - el volumen sale de Search Console y del CSV del Keyword Planner (gratis con una cuenta de Google Ads, aunque dé rangos);
 > - las preguntas, del autocomplete.
 >
-> Además, la web y el motor ya están publicados y conectados. Una prueba real desde el servidor de Render confirmó que **Google bloquea el autocomplete hacia las 570 consultas** (desde el ordenador de Álvaro, 1.418 sin bloqueo). Aun así entregó unas 1.800 keywords con el aviso de bloqueo. Por eso: **una recogida por hora**.
+> Además, la web y el motor ya están publicados y conectados, y **el conector «La Llave» ya está dado de alta en claude.ai**: puedes usarlo desde hoy. Lanzar una recogida pide aprobación; leer el estado, el Excel y las pestañas, no. Una prueba real desde el servidor de Render confirmó que **Google bloquea el autocomplete hacia las 570 consultas** (desde el ordenador de Álvaro, 1.418 sin bloqueo). Aun así entregó unas 1.800 keywords con el aviso de bloqueo. Por eso: **una recogida por hora**.
 
 ---
 
